@@ -73,6 +73,7 @@ class OwnerControllerTests {
 		george.setAddress("110 W. Liberty St.");
 		george.setCity("Madison");
 		george.setTelephone("6085551023");
+		george.setActive(true);
 		Pet max = new Pet();
 		PetType dog = new PetType();
 		dog.setName("dog");
@@ -146,6 +147,7 @@ class OwnerControllerTests {
 				.andExpect(model().attribute("owner", hasProperty("address", is("110 W. Liberty St."))))
 				.andExpect(model().attribute("owner", hasProperty("city", is("Madison"))))
 				.andExpect(model().attribute("owner", hasProperty("telephone", is("6085551023"))))
+				.andExpect(model().attribute("owner", hasProperty("active", is(true))))
 				.andExpect(view().name("owners/createOrUpdateOwnerForm"));
 	}
 
